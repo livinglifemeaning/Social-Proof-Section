@@ -1,0 +1,208 @@
+@import url('https://fonts.googleapis.com/css2?family=Spartan:wght@400;500;700&display=swap');
+
+$magenta-primary: hsl(300, 43%, 22%); 
+$pink-primary: hsl(333, 80%, 67%); 
+$dark-magenta-neutral: hsl(303, 10%, 53%);
+$light-magenta-neutral: hsl(300, 24%, 96%); 
+$white: hsl(0, 0%, 100%);  
+
+@mixin flex {
+    display: flex; 
+    flex-direction: column; 
+}
+
+*, *::before, *::after{
+    box-sizing: border-box; 
+    margin: 0; 
+}
+
+body{
+    font-family: 'Spartan', serif; 
+    font-size: 1rem; 
+    font-weight: 500; 
+}
+
+// Styling 
+
+.header{
+    text-align: center; 
+}
+
+.intro-header, .raters{
+    color: $magenta-primary;  
+}
+.intro-header, .raters, .buyer-name{
+font-weight: 700; 
+}
+
+.intro-header{
+    font-size: 1.7rem; 
+    line-height: 25px; 
+}
+
+.text-header{
+    color: $dark-magenta-neutral; 
+}
+
+.ratings-box{
+    background-color: $light-magenta-neutral; 
+    border-radius: 5px; 
+}
+
+.review-box{
+    background-color: $magenta-primary; 
+    border-radius: 5px; 
+}
+
+.buyer-image img{
+    border-radius: 50%; 
+    width: 50px; 
+}
+
+.buyer-name, .review{
+    color: $white; 
+}
+
+.buyer-verified{
+    color: $pink-primary; 
+    font-weight: 400; 
+}
+
+.review{
+    margin-top: 1rem; 
+    line-height: 22px; 
+}
+
+
+
+.review-box{
+    max-width: 400px; 
+}
+
+// Positioning
+html{
+    width: 100%; 
+    height: 100%; 
+}
+main{
+    position: relative; 
+    width: 100%; 
+
+}
+.bg-image-top{
+    position: absolute; 
+    z-index: -1; 
+    left: 0; 
+    top: 0; 
+}
+
+.bg-image-btm{
+    position: absolute; 
+    bottom: 0; 
+    right: 0; 
+}
+
+.container, .section-top, .section-bottom{
+@include flex; 
+gap: 1rem; 
+margin-bottom: 2rem; 
+
+}
+.container{
+    padding: 4rem 1rem; 
+}
+
+
+
+.ratings-box{
+    padding: 1rem 2rem; 
+    @include flex; 
+    justify-content: center; 
+    align-items: center; 
+    gap: .5rem; 
+}
+
+@media(max-width: 899px){
+.section-bottom{
+    align-self:center; 
+}
+}
+.review-box{
+    padding: 2rem; 
+}
+
+.buyer{
+    display: flex; 
+    align-items: center;  
+    gap: 2rem; 
+}
+
+.buyer-name{
+    margin-bottom: 5px; 
+}
+
+@media (min-width: 900px){
+body{
+    overflow: hidden; 
+}
+
+.container{
+    padding: 5rem 3rem; 
+    display: grid; 
+    grid-template-columns: 50% 50%; 
+    grid-template-rows: 50% 50%; 
+}
+
+.section-bottom{
+    grid-column-end: span 2;
+    flex-direction: row;  
+    align-items: center; 
+    justify-content: center; 
+}
+
+.header{
+    text-align: left; 
+    max-width: 50%; 
+}
+
+.intro-header{
+    font-size: 3rem; 
+    line-height: 50px; 
+}
+
+.ratings{
+    display: flex; 
+    width: 85%; 
+}
+
+.ratings-box{
+    max-width: 500px; 
+    flex-direction: row; 
+    gap: 2rem; 
+    align-self: flex-start; 
+}
+
+.ratings-box + .ratings-box{
+    align-self: center; 
+}
+
+.ratings-box + .ratings-box + .ratings-box{
+    align-self: end; 
+}
+
+.review-box{
+align-self: flex-start; 
+}
+
+.review-box + .review-box{
+    align-self: center; 
+
+}
+
+.review-box + .review-box + .review-box{
+    align-self: flex-end; 
+}
+
+
+
+}
